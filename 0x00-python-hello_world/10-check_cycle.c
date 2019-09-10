@@ -11,14 +11,14 @@ int check_cycle(listint_t *list)
 
 	if (list == NULL)
 	{
-		return (-1);
+		return (0);
 	}
 	while (ptrIni && ptrEnd && ptrEnd->next)
 	{
 		ptrIni = ptrIni->next;
 		ptrEnd = ptrEnd->next->next;
 		if (ptrIni == ptrEnd)
-			return (0);
+			return (1);
 	}
-	return (-1);
+	return (0);
 }
