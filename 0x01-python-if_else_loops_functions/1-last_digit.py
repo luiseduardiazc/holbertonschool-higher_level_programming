@@ -6,6 +6,7 @@ number = random.randint(-10000, 10000)
 def get_last_digit(number):
     if number < 0:
         number = number * - 1
+        return (number % 10) * -1
     return number % 10
 
 last_digit = get_last_digit(number)
