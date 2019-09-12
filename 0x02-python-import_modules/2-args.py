@@ -17,5 +17,5 @@ if __name__ == '__main__':
         print_num_arguments(len_argv - 1, "argument:")
         print_arguments(argv)
     else:
-        print_num_arguments(len_argv - 1, "arguments.")
+        print_num_arguments(len_argv - 1, "arguments:")
         print_arguments(argv)
