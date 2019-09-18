@@ -28,16 +28,15 @@ void reverse(listint_t **head_ref)
 int is_palindrome(listint_t **head)
 {
 	listint_t *list_a = NULL, *list_b = NULL;
-	listint_t *current = *head;
 
 	if (head == NULL || *head == NULL)
 		return (1);
 
-	while (current != NULL)
+	while ((*head) != NULL)
 	{
-		add_nodeint_end(&list_a, current->n);
-		add_nodeint_end(&list_b, current->n);
-		current = current->next;
+		add_nodeint_end(&list_a, (*head)->n);
+		add_nodeint_end(&list_b, (*head)->n);
+		(*head) = (*head)->next;
 	}
 	reverse(&list_b);
 	while (list_a != NULL && list_b != NULL)
