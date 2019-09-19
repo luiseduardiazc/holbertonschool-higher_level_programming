@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    return [[row[x]**2 for row in matrix] for x in range(3)]
+    new_list = [list(map(lambda x: x ** 2, row)) for row in matrix]
+    return new_list
