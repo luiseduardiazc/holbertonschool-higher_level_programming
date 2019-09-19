@@ -38,18 +38,20 @@ int is_palindrome(listint_t **head)
 	if (len == 1)
 		return (1);
 
-	list_a = *head;
 	while ((*head) != NULL)
 	{
-		if (len / 2 > count)
+		if (len / 2 == count)
 		{
+			add_nodeint_end(&list_b, (*head)->n);
 			break;
 		}
 		add_nodeint_end(&list_b, (*head)->n);
 		(*head) = (*head)->next;
 		count++;
 	}
+
 	reverse(&list_b);
+	list_a = *head;
 	while (list_b != NULL)
 	{
 		if (list_a->n != list_b->n)
