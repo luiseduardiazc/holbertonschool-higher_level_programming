@@ -40,7 +40,7 @@ int is_palindrome(listint_t **head)
 
 	while ((*head) != NULL)
 	{
-		if (len / 2 == count)
+		if (len / 2 >= count)
 		{
 			add_nodeint_end(&list_b, (*head)->n);
 			break;
