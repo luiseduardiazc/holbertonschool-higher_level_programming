@@ -35,11 +35,16 @@ int is_palindrome(listint_t **head)
 
 	while (list_a != NULL)
 		list_a = list_a->next, len++;
+	if (len == 1)
+		return (1);
 
+	list_a = *head;
 	while ((*head) != NULL)
 	{
 		if (len / 2 > count)
+		{
 			break;
+		}
 		add_nodeint_end(&list_b, (*head)->n);
 		(*head) = (*head)->next;
 		count++;
@@ -47,10 +52,11 @@ int is_palindrome(listint_t **head)
 	reverse(&list_b);
 	while (list_b != NULL)
 	{
-		if ((*head)->n != list_b->n)
+		if (list_a->n != list_b->n)
 			return (0);
 		list_b = list_b->next;
-		(*head) = (*head)->next;
+		list_a = list_a->next;
 	}
+	free(list_b);
 	return (1);
 }
