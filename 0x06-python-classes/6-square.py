@@ -36,9 +36,15 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        spaces = self.position[0]
+        coordinate_x = self.position[0]
+        coordinate_y = self.position[1]
+        # print \n in y
+        if coordinate_y > 0:
+            for y in range(0, coordinate_y):
+                print()
         for row in range(self.size):
-            for x in range(spaces):
+            for x in range(coordinate_x):
+                # print spaces in x
                 print(" ", end='')
             for colum in range(self.size):
                 print("#", end='')
