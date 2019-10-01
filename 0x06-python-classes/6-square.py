@@ -39,7 +39,7 @@ class Square:
         coordinate_x = self.position[0]
         coordinate_y = self.position[1]
         # print \n in y
-        if coordinate_y > 0:
+        if coordinate_y > 0 and self.size != 0:
             for y in range(0, coordinate_y):
                 print()
         for row in range(self.size):
