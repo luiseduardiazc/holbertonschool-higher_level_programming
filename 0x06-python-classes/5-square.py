@@ -17,11 +17,11 @@ class Square:
 
     def area(self):
         return self.__size ** 2
-    
+
     def my_print(self):
         for row in range(self.size):
             for colum in range(self.size):
                 print("#", end='')
             print()
-
-
+        if self.size == 0:
+            print()
