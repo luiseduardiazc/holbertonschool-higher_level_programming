@@ -1,5 +1,19 @@
 #!/usr/bin/python3
+"""Module manage function that multiplies 2 matrices.
+
+
+"""
+
+
 def matrix_mul(m_a, m_b):
+    """
+        Parameters
+        ----------
+        m_a : list
+            The list of list
+        ma_b : list
+            The list of list
+        """
     validate_matrix_mul(m_a, m_b)
     mult_matrix = []
     for row in m_a:
@@ -19,6 +33,15 @@ def matrix_mul(m_a, m_b):
 
 
 def validate_matrix_mul(m_a, m_b):
+    """
+        Parameters
+        ----------
+        m_a : list
+            The list of list
+        ma_b : list
+            The list of list
+        """
+
     if not isinstance(m_a, list):
         raise TypeError('m_a must be a list')
     if not isinstance(m_b, list):
@@ -40,6 +63,15 @@ def validate_matrix_mul(m_a, m_b):
 
 
 def validate_size_each_matrix(m_a, m_b):
+    """
+        Parameters
+        ----------
+        m_a : list
+            The list of list
+        ma_b : list
+            The list of list
+        """
+
     len_row_ma_a = len(m_a[0])
     len_row_ma_b = len(m_b[0])
     for row in m_a:
@@ -51,6 +83,14 @@ def validate_size_each_matrix(m_a, m_b):
 
 
 def validate_type_values_matrix(m_a_value, m_b_value):
+    """
+        Parameters
+        ----------
+        m_a_value : int or float
+            number
+        m_b_value : int or float
+            number
+        """
     if not isinstance(m_a_value, (int, float)):
         raise TypeError('m_a should contain only integers or floats')
     if not isinstance(m_b_value, (int, float)):
