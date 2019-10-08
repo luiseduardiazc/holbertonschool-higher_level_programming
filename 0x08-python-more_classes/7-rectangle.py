@@ -14,7 +14,7 @@ class Rectangle:
 
     def __str__(self):
         result = ""
-        if self.perimeter == 0:
+        if self.perimeter() == 0:
             return result
         for index in range(self.height):
             result += str(str(self.print_symbol) * self.width)
