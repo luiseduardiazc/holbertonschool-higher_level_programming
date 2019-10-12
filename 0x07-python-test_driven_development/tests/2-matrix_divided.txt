@@ -49,7 +49,7 @@ Test 7:
 
 Test 8:
 
-    >>> matrix_divided([[-33, 62, 1.0], [1.33, 1, 2.0]], float('inf'))
+    >>> matrix_divided([[33, 62, 1.0], [1.33, 1, 2.0]], float('inf'))
     [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
 Test 9:
@@ -65,3 +65,9 @@ Test 10:
     Traceback (most recent call last):
         ...
     TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+Test 11:
+    >>> matrix_divided([[3, "9"], [15, 3]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
