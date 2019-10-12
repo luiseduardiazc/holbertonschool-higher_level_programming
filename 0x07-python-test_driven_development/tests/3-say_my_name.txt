@@ -10,12 +10,12 @@ Test an add with only one argument:
 Test an add with only one argument:
 
     >>> say_my_name("Luis", )
-    My name is Luis
+    My name is Luis 
 
 Test an add with only one argument:
 
-    >>> say_my_name("Luis")
-    My name is Luis
+>>> say_my_name("Luis")
+My name is Luis 
 
 Test an add with only one argument:
 
