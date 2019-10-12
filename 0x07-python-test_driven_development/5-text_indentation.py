@@ -1,21 +1,12 @@
 #!/usr/bin/python3
-"""
-int: Module 0. Integers addition
-
-
-"""
+"""Module text_indentation"""
 
 
 def text_indentation(text):
-    """
-    unction that prints a text with 2 new lines after each of
-    these characters: ., ? and :
-    """
-    if not isinstance(text, str):
+    if type(text) != str:
         raise TypeError('text must be a string')
-    for chr in text:
-        if chr in ('.', '?', ':'):
-            print("{}".format(chr), end='\n\n')
-        else:
-            print("{}".format(chr), end='')
-    print("\n")
+
+    for i in ['.', '?', ':']:
+        text = (i + '\n\n').join([row.strip(' ') for row in text.split(i)])
+
+    print(text, end="")
