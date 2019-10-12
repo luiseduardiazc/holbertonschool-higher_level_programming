@@ -1,30 +1,58 @@
-Write a function that adds 2 integers.
->>> def add_integer(a, b=98):
-...		if not isinstance(a, (int, float)):
-...			raise TypeError('a must be an integer')
-...		if not isinstance(b, (int, float)):
-...			raise TypeError('b must be an integer')
-...		if type(a) or type(b) is float:
-...			a, b = int(a), int(b)
-...		return a + b
+Import module:
 
->>> add_integer(10,20)
-30
->>> add_integer(10,20.5)
-30
->>> add_integer(4.1,20.5)
-24
->>> add_integer(0.0000)
-98
->>> add_integer('aaaaa')
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> add_integer('Hello','Hello')
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> add_integer(12,'####')
-Traceback (most recent call last):
-TypeError: b must be an integer
->>> add_integer("++++",10)
-Traceback (most recent call last):
-TypeError: a must be an integer
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test an add with only one argument:
+
+    >>> add_integer(2)
+    100
+
+Test a comun sum:
+
+    >>> add_integer(4, 8)
+    12
+
+Test whatever:
+
+    >>> add_integer(24, 846)
+    870
+
+Test whatever:
+
+    >>> add_integer(24.897983479, 846.9827495)
+    870
+
+Tes passing a string as argument:
+
+    >>> add_integer("Holberton", 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(35673, "Holberton")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(None, 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(74, float('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(float('inf'), 5)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer

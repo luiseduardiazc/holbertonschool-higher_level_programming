@@ -1,18 +1,79 @@
->>> def say_my_name(first_name, last_name=""):
-...     if not isinstance(first_name, str):
-...         raise  TypeError('first_name must be a string')
-...     if not isinstance(last_name, str):
-...         raise  TypeError('last_name must be a string')
-...     print("My name is {} {}".format(first_name, last_name))
->>> say_my_name("John", "Smith")
-My name is John Smith
->>> say_my_name("Walter", "White")
-My name is Walter White
->>> say_my_name("Walter")
-My name is Walter 
->>> say_my_name(0.5)
-Traceback (most recent call last):
-TypeError: first_name must be a string
->>> say_my_name("Luis", 0.50)
-Traceback (most recent call last):
-TypeError: last_name must be a string
+Import module:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test an add with only one argument:
+
+    >>> say_my_name("luis", "Eduardo")
+    My name is luis Eduardo
+
+Test an add with only one argument:
+
+    >>> say_my_name("Luis", )
+    My name is Luis
+
+Test an add with only one argument:
+
+    >>> say_my_name("Luis")
+    My name is Luis
+
+Test an add with only one argument:
+
+    >>> say_my_name("Andres", "Rojas")
+    My name is Andres Rojas
+
+Test a comun sum:
+
+    >>> say_my_name(3, "rereere")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Test whatever:
+
+    >>> say_my_name("Sandra", 458745)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Test a comun sum:
+
+    >>> say_my_name(None, "hjgjhggh")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Test whatever:
+
+    >>> say_my_name("Luis", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Test a comun sum:
+
+    >>> say_my_name(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Test a comun sum:
+
+    >>> say_my_name([1, 23, 8], "###")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Test a comun sum:
+
+    >>> say_my_name((), "###")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Test a comun sum:
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
