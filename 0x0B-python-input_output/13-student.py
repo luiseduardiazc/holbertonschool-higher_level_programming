@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Python - Input/Output """
-import json
 
 
 class Student:
