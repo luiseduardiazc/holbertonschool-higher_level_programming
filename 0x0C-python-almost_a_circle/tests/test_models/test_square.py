@@ -2,6 +2,7 @@
 """ Test for class Base """
 import unittest
 from unittest import mock
+import pep8
 from io import StringIO
 import inspect
 from models import square
@@ -19,6 +20,20 @@ class TestSquareDocumentation(unittest.TestCase):
             it store in a list of tuples """
         cls.list_square_functions = inspect.getmembers(
             Square, inspect.isfunction)
+
+    def test_pep8_square_class(self):
+        """ Test that models/square.py conforms to PEP8"""
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found pep8 erros and warnings in test_square.py")
+
+    def test_pep8_square_test(self):
+        """ Test that test/test_models/test_square.py conforms to PEP8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found pep8 erros and warnings in test_square.py")
 
     def test_module_documentation(self):
         """ check module documentation """

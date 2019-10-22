@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Test for class Base """
 import unittest
+import pep8
 import inspect
 from models import base
 Base = base.Base
@@ -15,6 +16,20 @@ class TestBaseDoc(unittest.TestCase):
             find into Base class all functions.
             it store in a list of tuples """
         cls.list_base_functions = inspect.getmembers(Base, inspect.isfunction)
+
+    def test_pep8_base_class(self):
+        """ Test that models/base.py conforms to PEP8"""
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found pep8 erros and warnings in test_base.py")
+
+    def test_pep8_base_test(self):
+        """ Test that test/test_models/test_base.py conforms to PEP8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found pep8 erros and warnings in test_base.py")
 
     def test_module_documentation(self):
         """ check module documentation """
