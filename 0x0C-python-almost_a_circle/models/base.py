@@ -67,8 +67,7 @@ class Base:
             for line in reader:
                 list_line_file.append(cls.from_json_string(line))
         for items in list_line_file:
-            for dic_to_update in items:
-                obj = cls(1, 1)
-                obj.update(**dic_to_update)
+            for dic_to_create in items:
+                obj = cls.create(**dic_to_create)
                 list_instances.append(obj)
         return list_instances
