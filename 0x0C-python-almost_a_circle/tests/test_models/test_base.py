@@ -12,7 +12,8 @@ class TestBaseDocumentation(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """ This method run before all test and
-            find into Base class all functions. it store in a list of tuples """
+            find into Base class all functions.
+            it store in a list of tuples """
         cls.list_base_functions = inspect.getmembers(Base, inspect.isfunction)
 
     def test_module_documentation(self):

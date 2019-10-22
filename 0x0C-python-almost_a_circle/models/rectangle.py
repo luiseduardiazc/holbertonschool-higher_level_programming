@@ -12,7 +12,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
+        super().__init__(id=id)
 
     @property
     def width(self):
@@ -77,8 +77,10 @@ class Rectangle(Base):
     def display(self):
         """ Prints in stdout the Rectangle
             instance with the character # """
-        for x in range(self.height):
-            print("{}".format("#" * self.width))
+        print("{}".format("\n" * self.y), end='')
+        dis = "\n".join(" " * self.x + "#" *
+                        self.width for x in range(self.height))
+        print(dis)
 
     def __str__(self):
         """rectangule string representation"""
@@ -88,3 +90,33 @@ class Rectangle(Base):
                           self.__y,
                           self.__width,
                           self.__height)
+
+    def update(self, *args, **kwargs):
+        """ Assigns an argument to each attribute """
+        attr_list = [
+            {'attr': 'id', 'exist': False},
+            {'attr': 'width', 'exist': False},
+            {'attr': 'height', 'exist': False},
+            {'attr': 'x', 'exist': False},
+            {'attr': 'y', 'exist': False}
+        ]
+        for key, value in enumerate(args):
+            attr = attr_list[key]['attr']
+            attr_list[key]['exist'] = True
+            self.__setattr__(attr, value)
+        for key, value in kwargs.items():
+            for k in range(len(attr_list)):
+                attr = attr_list[k]['attr']
+                exist = attr_list[k]['exist']
+                if (attr == key) and not exist:
+                    self.__setattr__(key, value)
+
+    def to_dictionary(self):
+        """dictionary representation"""
+        rec_dic = {}
+        rec_dic["id"] = self.id
+        rec_dic["width"] = self.width
+        rec_dic["height"] = self.height
+        rec_dic["x"] = self.x
+        rec_dic["y"] = self.y
+        return rec_dic
