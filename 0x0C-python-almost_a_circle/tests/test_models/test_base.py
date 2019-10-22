@@ -6,7 +6,7 @@ from models import base
 Base = base.Base
 
 
-class TestBaseDocumentation(unittest.TestCase):
+class TestBaseDoc(unittest.TestCase):
     """ calss to check documentation for Base class """
 
     @classmethod
@@ -32,32 +32,44 @@ class TestBaseDocumentation(unittest.TestCase):
 
 
 class TestBase(unittest.TestCase):
+    """ Test Base """
+
+    def setUp(self):
+        """ Method called to prepare the test fixture """
+        Base._Base__nb_objects = 0
+
     def test_not_arguments(self):
+        """ test not args"""
         b1 = Base()
         self.assertEqual(b1.id, 1)
 
-    def test_not_arguments_other_instance(self):
+    def test_id(self):
+        """ test id"""
         b1 = Base()
-        self.assertEqual(b1.id, 2)
+        b2 = Base()
+        self.assertEqual(b2.id, 2)
 
     def test_arguments(self):
+        """ test base args"""
         b1 = Base(10)
         b2 = Base(98)
         self.assertEqual(b1.id, 10)
         self.assertEqual(b2.id, 98)
 
     def test_many_arguments(self):
+        """ test many args """
         with self.assertRaises(TypeError):
             b1 = Base(1, 5, 50)
 
     def test_private_attribute(self):
+        """ test private attr"""
         b1 = Base()
         b1 = Base(100)
         with self.assertRaises(AttributeError):
-            b1.__nb_objects
+            print(b1.__nb_objects)
 
         with self.assertRaises(AttributeError):
-            b1.nb_objects
+            print(b1.nb_objects)
 
 
 if __name__ == "__main__":
