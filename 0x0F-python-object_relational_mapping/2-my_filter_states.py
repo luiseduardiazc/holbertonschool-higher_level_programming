@@ -6,7 +6,7 @@ import MySQLdb
 module for states
 '''
 _SQL = """ SELECT * FROM states
-            WHERE  states.name = '{:s}'
+            WHERE  states.name LIKE '{:s}'
             ORDER BY states.id ASC"""
 
 
