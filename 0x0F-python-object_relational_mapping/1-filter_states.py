@@ -7,7 +7,7 @@ module for states
 '''
 _SQL = """ SELECT * FROM states
             WHERE  states.name LIKE 'N%'
-            ORDER BY states.id"""
+            ORDER BY states.id ASC"""
 
 
 def get_db_connexion(**kwargs):
