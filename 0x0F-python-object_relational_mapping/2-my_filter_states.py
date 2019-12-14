@@ -28,7 +28,8 @@ def get_all_states(conn, state_name):
     cur.execute(_SQL.format(state_name))
     query_rows = cur.fetchall()
     for item in query_rows:
-        print(item)
+        if item[1] == state_name:
+            print(item)
     cur.close()
     conn.close()
 
