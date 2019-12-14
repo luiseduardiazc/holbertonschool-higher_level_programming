@@ -29,7 +29,7 @@ def get_all_states(conn):
     query_rows = cur.fetchall()
     for item in query_rows:
         print(item)
-    cursor.close()
+    cur.close()
     conn.close()
 
 
