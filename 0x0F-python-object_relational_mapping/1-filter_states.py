@@ -28,7 +28,8 @@ def get_all_states(conn):
     cur.execute(_SQL)
     query_rows = cur.fetchall()
     for item in query_rows:
-        print(item)
+        if item[1][0] == 'N':
+            print(item)
     cur.close()
     conn.close()
 
