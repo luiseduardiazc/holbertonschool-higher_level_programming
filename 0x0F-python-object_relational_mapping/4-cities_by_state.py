@@ -8,7 +8,7 @@ module for cities
 _SQL = """
 
 SELECT
-    cities.id, states.name, cities.name
+    cities.id, cities.name, states.name
 FROM
     cities
         INNER JOIN
