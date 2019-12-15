@@ -11,14 +11,14 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
-                                                                    argv[2],
-                                                                    argv[3]))
+                                                                       argv[2],
+                                                                       argv[3]))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state_filter = session.query(State).order_by(State.id).limit(1).all()
+    state_filter = session.query(State).order_by(State.id).first()
     if not state_filter:
         print('Nothing')
-    for state in state_filter:
-        print("{:d}: {:s}".format(state.id, state.name))
+    else:
+        print("{:d}: {:s}".format(state_filter.id, state_filter.name))
     session.close()
