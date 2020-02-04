@@ -7,5 +7,5 @@ process.argv.forEach((element) => {
 if (size < 3) {
   console.log('No argument');
 } else {
-  for (let i = 2; i < size; i++) { console.log(process.argv[i]); }
+  console.log(process.argv[2]);
 }
